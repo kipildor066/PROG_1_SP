@@ -1,0 +1,32 @@
+
+#Config ventana
+ANCHO_VENTANA = 540
+ALTO_VENTANA = 600
+TAMAÑO_CELDA = 60
+MARGEN = 20
+#Colores
+BLANCO = (255, 255, 255)
+GRIS_CLARO = (220, 220, 220)
+GRIS_OSCURO = (100, 100, 100)
+NEGRO = (0, 0, 0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
