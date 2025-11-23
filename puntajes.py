@@ -46,6 +46,39 @@ def guardar_puntaje(nick, puntaje):
     except IOError:
         print(f"Error al guardar el puntaje de {nick}")
 
+def calcular_puntaje(puntaje_actual, numeros_incorrectos, zonas_completas, matriz_completa, zonas_completadas):
+    """
+    Calcula el puntaje segun lo validado
+
+    Args:
+        puntaje_actual: puntaje actual del jugador
+        numeros_incorrectos (list): lista de (fila, columna) con números incorrectos
+        zonas_completas (list): lista de tuplas (region_fila, region_col) de zonas completadas
+        matriz_completa (bool): True si la matriz completa está correcta
+        zonas_completadas: set de tuplas (region_fila, region_col) de zonas ya completadas anteriormente
+        
+    Returns:
+        Tupla: (nuevo_puntaje, zonas_completadas_actualizado)
+    """
+    nuevo_puntaje = puntaje_actual
+    
+    # Descontar 1 punto por cada número mal colocado
+    nuevo_puntaje -= len(numeros_incorrectos)
+    
+    # Sumar 9 puntos por cada zona completada correctamente (solo una vez)
+    for zona in zonas_completas:
+        if zona not in zonas_completadas:
+            nuevo_puntaje += 9
+            zonas_completadas.add(zona)
+    
+    # Sumar 81 puntos si la matriz completa está correcta
+    if matriz_completa:
+        nuevo_puntaje += 81
+        print("¡Felicidades! Has completado el Sudoku correctamente.")
+    
+    return nuevo_puntaje, zonas_completadas
+
+
 def obtener_top_5():
     """
     Obtiene los 5 mejores puntajes
