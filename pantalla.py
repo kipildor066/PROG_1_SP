@@ -1,15 +1,9 @@
 import pygame as pg
-
 from soluciones import generar_solucion_completa
 import random
 
 
 pg.init()
-
-
-
-
-
 
 # Config ventana
 ANCHO_VENTANA = 600
@@ -26,9 +20,6 @@ VERDE = (0, 200, 0)
 ROJO = (200, 0, 0)
 AZUL = (0, 100, 200)
 AMARILLO = (255, 200, 0)
-
-
-
 
 
 # Config fuente
@@ -65,7 +56,8 @@ def dibujar_tablero():
         pg.draw.line(ventana, NEGRO, (MARGEN + i * TAMAÑO_CELDA * 3, MARGEN), (MARGEN + i * TAMAÑO_CELDA * 3, MARGEN + 9 * TAMAÑO_CELDA), 2)
 
 def mostrar_menu_principal():
-    """Muestra el menu de cuatro botones: "Dificultad", "jugar", "puntajes", "salir"
+    """
+    Muestra el menu de cuatro botones: "Dificultad", "jugar", "puntajes", "salir"
     """
     
     reloj = pg.time.Clock()
@@ -137,7 +129,6 @@ def dibujar_top_5(puntajes):
 def mostrar_top_5(puntajes):
     """
     Muestra los mejores puntajes en pantalla
-
     Args:
         puntajes
     """

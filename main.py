@@ -6,6 +6,7 @@ from jugar import *
 from puntajes import *
 from soluciones import *
 from validaciones import *
+from musica import *
 
 
 def main():
@@ -13,6 +14,7 @@ def main():
     Punto de entrada del juego
     """
     reloj = pg.time.Clock()
+    musica_fondo()
     
     dificultad_actual = "medio"
     ejecutando = True

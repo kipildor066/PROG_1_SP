@@ -1,47 +1,22 @@
 [
   {
-    "nick": "Julian",
-    "puntaje": 62
-  },
-  {
-    "nick": "Martin",
-    "puntaje": 95
-  },
-  {
-    "nick": "Andres",
-    "puntaje": 48
-  },
-  {
-    "nick": "Lucia",
-    "puntaje": 70
-  },
-  {
-    "nick": "Marcela",
-    "puntaje": 72
-  },
-  {
-    "nick": "Bruno",
-    "puntaje": 54
-  },
-  {
-    "nick": "Claudia",
-    "puntaje": 36
+    "nick": "Laura",
+    "puntaje": 81
   },
   {
     "nick": "Lucas",
-    "puntaje": 18
+    "puntaje": 81
   },
   {
-    "nick": "Marta",
-    "puntaje": 17
-
+    "nick": "Bru",
+    "puntaje": 0
   },
   {
-    "nick": "sdsdsd",
-    "puntaje": -72
+    "nick": "igna",
+    "puntaje": -45
   },
   {
-    "nick": "asd",
-    "puntaje": -81
+    "nick": "Manuel",
+    "puntaje": -90
   }
 ]

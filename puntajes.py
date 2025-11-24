@@ -12,14 +12,13 @@ def cargar_puntajes():
     if not os.path.exists(ARCHIVO_PUNTAJES):
         return []
     
-    try:
-        with open(ARCHIVO_PUNTAJES, 'r', encoding='utf-8') as archivo:
-            puntajes = json.load(archivo)
-            # Ordenar por puntaje descendente
-            puntajes.sort(key=lambda x: x.get('puntaje', 0), reverse=True)
-            return puntajes
-    except (json.JSONDecodeError, IOError):
-        return []
+    
+    with open(ARCHIVO_PUNTAJES, 'r', encoding='utf-8') as archivo:
+        puntajes = json.load(archivo)
+        # Ordenar por puntaje descendente
+        puntajes.sort(key=lambda x: x.get('puntaje', 0), reverse=True)
+        return puntajes
+
 
 def guardar_puntaje(nick, puntaje):
     """
@@ -40,11 +39,10 @@ def guardar_puntaje(nick, puntaje):
     puntajes.sort(key=lambda x: x.get('puntaje', 0), reverse=True)
     
     # Guardar en archivo
-    try:
-        with open(ARCHIVO_PUNTAJES, 'w', encoding='utf-8') as archivo:
-            json.dump(puntajes, archivo, ensure_ascii=False, indent=2)
-    except IOError:
-        print(f"Error al guardar el puntaje de {nick}")
+
+    with open(ARCHIVO_PUNTAJES, 'w', encoding='utf-8') as archivo:
+        json.dump(puntajes, archivo, ensure_ascii=False, indent=2)
+
 
 def calcular_puntaje(puntaje_actual, numeros_incorrectos, zonas_completas, matriz_completa, zonas_completadas):
     """
@@ -62,19 +60,19 @@ def calcular_puntaje(puntaje_actual, numeros_incorrectos, zonas_completas, matri
     """
     nuevo_puntaje = puntaje_actual
     
-    # Descontar 1 punto por cada número mal colocado
+    # Descontar 1 punto por cada numero mal colocado
     nuevo_puntaje -= len(numeros_incorrectos)
     
-    # Sumar 9 puntos por cada zona completada correctamente (solo una vez)
+    # Sumar 9 puntos por cada zona completada correctamente
     for zona in zonas_completas:
         if zona not in zonas_completadas:
             nuevo_puntaje += 9
             zonas_completadas.add(zona)
     
     # Sumar 81 puntos si la matriz completa está correcta
-    if matriz_completa:
-        nuevo_puntaje += 81
-        print("¡Felicidades! Has completado el Sudoku correctamente.")
+    if matriz_completa == True:
+       
+        print("¡Felicidades! Has completado el Sudoku.")
     
     return nuevo_puntaje, zonas_completadas
 
